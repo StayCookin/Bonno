@@ -1,5 +1,9 @@
 import { Building2, Shield } from 'lucide-react';
 import React from 'react';
+import { UserPlus, LogIn, Users, Bed, Home } from 'lucide-react';
+import UBotswana from '../assets/UBotswana.png';
+
+import './Landing Page.css'; 
 
 
 export default function LandingPage({ onNavigateToAuth, onNavigateToGuestPortal }) {
@@ -15,7 +19,7 @@ export default function LandingPage({ onNavigateToAuth, onNavigateToGuestPortal 
 
                 <div className="hero-content">
                     <div className="hero-title-box">
-                        <Home className="hero-icon" />
+                        <img src={UBotswana} alt="University of Botswana" className="hero-icon" />
                         <h1 className="hero-title">Bonno</h1>
                     </div>
 
@@ -30,7 +34,7 @@ export default function LandingPage({ onNavigateToAuth, onNavigateToGuestPortal 
 
                     <div className="hero-buttons">
                         <button className="btn-primary" onClick={onNavigateToAuth}>
-                            <Login className="btn-icon"/> Login / Sign Up
+                            <LogIn className="btn-icon"/> Login / Sign Up
                         </button>
 
                         <button className="btn-outline" onClick={onNavigateToGuestPortal}>
