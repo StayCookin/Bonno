@@ -1,12 +1,7 @@
 import { useState } from 'react';
-import { card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
-import { Input } from './ui/input';
-import { Label } from './ui/label';
-import { Button } from './ui/button';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
-import { ArrowLeft, QrCode, Download, UserPlus, Building2, Calender, Clock } from 'lucide-react';
+import { ArrowLeft, QrCode, Download, UserPlus, Building2, Calendar, Clock, Button} from 'lucide-react';
 import { toast } from 'sonner';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 
 export function GuestPortal({ onBack }) {
     const [guestName, setGuestName] = useState('');
@@ -21,7 +16,7 @@ export function GuestPortal({ onBack }) {
     const [passGenerated, setPassGenerated] = useState(false);
     const [passCode, setPassCode] = useState('');
 
-    const buidlingOptions = [ 'Vegas', '478', '479', '477', '474', '475', '476', 'Barracks', 'Single Rooms'];
+    const buildingOptions = [ 'Vegas', '478', '479', '477', '474', '475', '476', 'Barracks', 'Single Rooms'];
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -99,7 +94,7 @@ export function GuestPortal({ onBack }) {
                                         </div>
                                         <div>
                                             <p className="text-gray-500">Date & Time</p>
-                                            <p>{visitData} at {visitTime}</p>
+                                            <p>{visitDate} at {visitTime}</p>
                                         </div>
                                         <div className="col-span-2">
                                             <p className="text-gray-500">Purpose</p>
@@ -329,3 +324,4 @@ export function GuestPortal({ onBack }) {
         </div>
     )
 }
+export default GuestPortal;
