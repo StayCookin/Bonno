@@ -40,15 +40,14 @@ export function GuestPortal({ onBack }) {
                 <div className="container mx-auto px-4 py-8">
                     <div className="max-w-2xl mx-auto">
                         <Button variant="ghost" onClick={onBack} className="mb-6">
-                            <ArrowLeft className="w-4 h-4 mr-2"/>
+                            <ArrowLeft className="w-4 h-4 mr-2" />
                             Back
                         </Button>
 
-                        <div>
                         <Card>
                             <CardHeader className="text-center">
                                 <div className="mx-auto mb-4 w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
-                                    <QrCode className="w-10 h-10 text-green-600"/>
+                                    <QrCode className="w-10 h-10 text-green-600" />
                                 </div>
                                 <CardTitle>Digital Pass Generated!</CardTitle>
                                 <CardDescription>
@@ -116,18 +115,15 @@ export function GuestPortal({ onBack }) {
 
                                 <div className="flex gap-3">
                                     <Button onClick={downloadPass} className="flex-1">
-                                        <Download className="w-4 h-4 mr-2"/>
+                                        <Download className="w-4 h-4 mr-2" />
                                         Download Pass
                                     </Button>
                                     <Button onClick={onBack} variant="outline" className="flex-1">
                                         Done
                                     </Button>
                                 </div>
-
-                                </CardContent>
+                            </CardContent>
                         </Card>
-
-                        </div>
                     </div>
                 </div>
             </div>
@@ -135,28 +131,29 @@ export function GuestPortal({ onBack }) {
     }
 
     return (
-        < div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
+        <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
             <div className="container mx-auto px-4 py-8">
                 <div className="max-w-2xl mx-auto">
-                   
-                        <ArrowLeft className="w-4 h-4 mr-2"/>
+                    <Button variant="ghost" onClick={onBack} className="mb-6">
+                        <ArrowLeft className="w-4 h-4 mr-2" />
                         Back to Dashboard
-                    
-          <Card>
-            <CardHeader>
-              <div className="flex items-center gap-3 mb-2">
-                <div className="p-2 bg-[#800020]/10 rounded-lg">
-                  <UserPlus className="w-6 h-6 text-[#800020]" />
-                </div>
-                <div>
-                  <CardTitle>Guest Portal - Digital Pass</CardTitle>
-                  <CardDescription>
-                    Request a visitor pass to access Bonno housing facilities
-                  </CardDescription>
-                </div>
-              </div>
-            </CardHeader>
-            <CardContent>
+                    </Button>
+
+                    <Card>
+                        <CardHeader>
+                            <div className="flex items-center gap-3 mb-2">
+                                <div className="p-2 bg-[#800020]/10 rounded-lg">
+                                    <UserPlus className="w-6 h-6 text-[#800020]" />
+                                </div>
+                                <div>
+                                    <CardTitle>Guest Portal - Digital Pass</CardTitle>
+                                    <CardDescription>
+                                        Request a visitor pass to access Bonno housing facilities
+                                    </CardDescription>
+                                </div>
+                            </div>
+                        </CardHeader>
+                        <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Guest Info */}
                 <div>
