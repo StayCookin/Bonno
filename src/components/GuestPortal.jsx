@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { ArrowLeft, QrCode, Download, UserPlus, Building2, Calendar, Clock } from 'lucide-react';
 import { toast } from 'sonner';
-import { motion } from 'framer-motion';
-
 import { Button } from './ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { Input } from './ui/input';
@@ -46,11 +44,7 @@ export function GuestPortal({ onBack }) {
                             Back
                         </Button>
 
-                        <motion.div
-                        initial={{ scale: 0.95, opacity: 0}}
-                        animate={{ scale:1, opacity: 1}}
-                        transition={{ duration: 0.3}}
-                        >
+                        <div>
                         <Card>
                             <CardHeader className="text-center">
                                 <div className="mx-auto mb-4 w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
@@ -133,7 +127,7 @@ export function GuestPortal({ onBack }) {
                                 </CardContent>
                         </Card>
 
-                        </motion.div>
+                        </div>
                     </div>
                 </div>
             </div>
