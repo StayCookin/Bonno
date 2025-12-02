@@ -1,7 +1,13 @@
 import { useState } from 'react';
-import { ArrowLeft, QrCode, Download, UserPlus, Building2, Calendar, Clock} from 'lucide-react';
+import { ArrowLeft, QrCode, Download, UserPlus, Building2, Calendar, Clock } from 'lucide-react';
 import { toast } from 'sonner';
 import { motion } from 'framer-motion';
+
+import { Button } from './ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
+import { Input } from './ui/input';
+import { Label } from './ui/label';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 
 export function GuestPortal({ onBack }) {
     const [guestName, setGuestName] = useState('');
@@ -32,7 +38,7 @@ export function GuestPortal({ onBack }) {
 
     if (passGenerated) {
         return (
-            <div className="min-h screen bg-gradient-to-br from-gray-50 to-white">
+            <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
                 <div className="container mx-auto px-4 py-8">
                     <div className="max-w-2xl mx-auto">
                         <Button variant="ghost" onClick={onBack} className="mb-6">

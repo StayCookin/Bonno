@@ -1,13 +1,13 @@
 import { useState } from "react";
 import LandingPage from "./components/LandingPage";
-import GuestPortal from "./components/GuestPortal"; // make sure this file exists
+import AuthExperience from "./components/AuthExperience";
+import { GuestPortal } from "./components/GuestPortal";
 
 import "./App.css";
 
 function App() {
-  const [screen, setScreen] = useState("landing"); 
+  const [screen, setScreen] = useState("landing");
   // values: "landing", "auth", "guest"
-
   return (
     <div className="app-container">
 
@@ -17,10 +17,11 @@ function App() {
           onNavigateToGuestPortal={() => setScreen("guest")}
         />
       )}
+      {screen === "auth" && (
+        <AuthExperience onBackHome={() => setScreen("landing")} />
+      )}
 
-      {screen === "auth" && <AuthPage />}
-
-      {screen === "guest" && <GuestPortal />}
+      {screen === "guest" && <GuestPortal onBack={() => setScreen("landing")} />}
 
     </div>
   );
