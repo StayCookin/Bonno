@@ -124,15 +124,15 @@ export function GuestPortal({ onBack }) {
                                     </div>
                                 </div>
 
-                                <div className="p-4 bf-[#800020]/5 border border-[#800020]/20 rounded-lg">
-                                <h4 className="text-sm mb-2">Important Notice:</h4>
-                                <ul className="text-xs text-gray-600 space-y-1">
-                                    <li>This pass os valid for the specified date and time only.</li>
-                                    <li>Visitors must present valid ID at security checkpoint.</li>
-                                    <li>The resident will be notified of your arrivals.</li>
-                                    <li>visitors must sign in and out at reception.</li>
-                                    <li>Visitors hours: 07:00 AM  - MIDNIGHT</li>
-                                </ul>
+                                <div className="p-4 bg-[#800020]/5 border border-[#800020]/20 rounded-lg">
+                                    <h4 className="text-sm mb-2">Important Notice:</h4>
+                                    <ul className="text-xs text-gray-600 space-y-1">
+                                        <li>This pass is valid for the specified date and time only.</li>
+                                        <li>Visitors must present valid ID at the security checkpoint.</li>
+                                        <li>The resident will be notified of your arrival.</li>
+                                        <li>Visitors must sign in and out at reception.</li>
+                                        <li>Visitor hours: 07:00 AM – MIDNIGHT.</li>
+                                    </ul>
                                 </div>
 
                                 <div className="flex gap-3">
