@@ -2,7 +2,11 @@
 
 import * as React from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+<<<<<<< HEAD
 import { DayPicker, type DayPickerProps } from "react-day-picker";
+=======
+import { DayPicker } from "react-day-picker";
+>>>>>>> 9ebac75365a26ed796d90c66455576b76d389984
 
 import { cn } from "./utils";
 import { buttonVariants } from "./button";
