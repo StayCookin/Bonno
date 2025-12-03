@@ -73,8 +73,13 @@ const Footer = () => (
   </footer>
 );
 
-const AuthScreen = ({ initialMode = 'login', onLogin, onBackHome }) => {
+const AuthScreen = ({ initialMode = 'login', onLogin, onBackHome, onModeChange }) => {
   const [mode, setMode] = useState(initialMode);
+
+  const updateMode = (value) => {
+    setMode(value);
+    onModeChange?.(value);
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
@@ -92,7 +97,7 @@ const AuthScreen = ({ initialMode = 'login', onLogin, onBackHome }) => {
         <div className="w-full max-w-md">
           <div className="bg-gray-200 p-1 rounded-full grid grid-cols-2 mb-8">
             <button
-              onClick={() => setMode('signup')}
+              onClick={() => updateMode('signup')}
               className={`py-2 text-sm font-medium rounded-full transition-all ${
                 mode === 'signup'
                   ? 'bg-white text-gray-900 shadow-sm'
@@ -102,7 +107,7 @@ const AuthScreen = ({ initialMode = 'login', onLogin, onBackHome }) => {
               Sign Up
             </button>
             <button
-              onClick={() => setMode('login')}
+              onClick={() => updateMode('login')}
               className={`py-2 text-sm font-medium rounded-full transition-all ${
                 mode === 'login'
                   ? 'bg-white text-gray-900 shadow-sm'
@@ -488,7 +493,7 @@ const ApplicationForm = ({ onBack }) => {
   );
 };
 
-const AuthExperience = ({ onBackHome }) => {
+const AuthExperience = ({ onBackHome, initialMode = 'login', onModeChange }) => {
   const [view, setView] = useState('auth');
 
   const handleLogin = () => setView('dashboard');
@@ -497,7 +502,7 @@ const AuthExperience = ({ onBackHome }) => {
   const navigateToDashboard = () => setView('dashboard');
 
   if (view === 'auth') {
-    return <AuthScreen onLogin={handleLogin} onBackHome={onBackHome} />;
+    return <AuthScreen initialMode={initialMode} onLogin={handleLogin} onBackHome={onBackHome} onModeChange={onModeChange} />;
   }
 
   return (
