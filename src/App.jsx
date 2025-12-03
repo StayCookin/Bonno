@@ -1,7 +1,7 @@
 import { useState } from "react";
 import LandingPage from "./components/LandingPage";
 import AuthPage from "./pages/AuthPage";
-import { GuestPortal } from "./components/GuestPortal";
+import GuestPortal from "./components/GuestPortal";
 
 import "./index.css";
 
