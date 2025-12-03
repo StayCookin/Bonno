@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowLeft, QrCode, Download, UserPlus, Building2, Calendar, Clock } from 'lucide-react';
+import { ArrowLeft, QrCode, Download, UserPlus, Building2, Calendar, Clock, Component } from 'lucide-react';
 import { toast } from 'sonner';
 import { Button } from './ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
