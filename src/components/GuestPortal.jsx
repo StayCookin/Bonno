@@ -34,11 +34,22 @@ export function GuestPortal({ onBack }) {
         toast.info('Digital pass downloaded. Present this at security.');
     };
 
+    const resetForm = () => {
+        setGuestName('');
+        setGuestPhone('');
+        setGuestIdNumber('');
+        setResidentName('');
+        setResidentRoom('');
+        setBuilding('');
+        setVisitDate('');
+        setVisitTime('');
+        setVisitPurpose('');
+        setPassGenerated(false);
+        setPassCode('');
+    };
+
     const handleBack = () => {
-        if (passGenerated) {
-            setPassGenerated(false);
-            return;
-        }
+        resetForm();
 
         if (typeof onBack === 'function') {
             onBack();
