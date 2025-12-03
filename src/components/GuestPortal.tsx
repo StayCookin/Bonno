@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ArrowLeft, QrCode, Download, UserPlus, Building2, Calendar, Clock } from 'lucide-react';
+import '../guest-styles.css';
 
 export default function GuestPortal() {
     const [showPortal, setShowPortal] = useState(true);
@@ -75,7 +76,7 @@ export default function GuestPortal() {
                                     </div>
                                     <div className="text-center space-y-2">
                                         <p className="text-xs text-gray-500 uppercase tracking-wider">Pass Code</p>
-                                        <p className="text-2l font-bold tracking-wider text-[#800020]">{passCode}</p>
+                                        <p className="text-2xl font-bold tracking-wider text-[#800020]">{passCode}</p>
                                     </div>
                                 </div>
 
@@ -275,7 +276,7 @@ export default function GuestPortal() {
                                                     placeholder="e.g., 204"
                                                     value={residentRoom}
                                                     onChange={(e) => setResidentRoom(e.target.value)}
-                                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#800020] focus-border-transparent outline-none transition-all"
+                                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#800020] focus:border-transparent outline-none transition-all"
                                                 />
                                             </div>
                                         </div>
@@ -323,7 +324,7 @@ export default function GuestPortal() {
                                                 id="visitPurpose"
                                                 value={visitPurpose}
                                                 onChange={(e) => setVisitPurpose(e.target.value)}
-                                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#800020] focus-border-transparent outline-none transition-all bg-white"
+                                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#800020] focus:border-transparent outline-none transition-all bg-white"
                                             >
                                                 <option value="">Select purpose</option>
                                                 <option value="social">Social Visit</option>
@@ -339,7 +340,7 @@ export default function GuestPortal() {
 
                                 {/* Guidelines */}
                                 <div className="p-4 bg-[#800020]/5 border border-[#800020]/20 rounded-lg">
-                                    <h4 className="text-sm font-semibold mb-2 flex items center gap-2 text-gray-900">
+                                    <h4 className="text-sm font-semibold mb-2 flex items-center gap-2 text-gray-900">
                                         <Clock className="w-4 h-4 text-[#800020]" />
                                         Visitor Guidelines:
                                     </h4>
