@@ -34,12 +34,23 @@ export function GuestPortal({ onBack }) {
         toast.info('Digital pass downloaded. Present this at security.');
     };
 
+    const handleBack = () => {
+        if (passGenerated) {
+            setPassGenerated(false);
+            return;
+        }
+
+        if (typeof onBack === 'function') {
+            onBack();
+        }
+    };
+
     if (passGenerated) {
         return (
             <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
                 <div className="container mx-auto px-4 py-8">
                     <div className="max-w-2xl mx-auto">
-                        <Button variant="ghost" onClick={onBack} className="mb-6">
+                        <Button type="button" variant="ghost" onClick={handleBack} className="mb-6">
                             <ArrowLeft className="w-4 h-4 mr-2" />
                             Back
                         </Button>
@@ -118,7 +129,7 @@ export function GuestPortal({ onBack }) {
                                         <Download className="w-4 h-4 mr-2" />
                                         Download Pass
                                     </Button>
-                                    <Button onClick={onBack} variant="outline" className="flex-1">
+                                    <Button type="button" onClick={handleBack} variant="outline" className="flex-1">
                                         Done
                                     </Button>
                                 </div>
@@ -134,7 +145,7 @@ export function GuestPortal({ onBack }) {
         <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
             <div className="container mx-auto px-4 py-8">
                 <div className="max-w-2xl mx-auto">
-                    <Button variant="ghost" onClick={onBack} className="mb-6">
+                    <Button type="button" variant="ghost" onClick={handleBack} className="mb-6">
                         <ArrowLeft className="w-4 h-4 mr-2" />
                         Back to Dashboard
                     </Button>
