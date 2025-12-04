@@ -36,6 +36,10 @@ interface AuthScreenProps {
   onModeChange: (value: string) => void;
 }
 
+interface ApplicationFormProps {
+  onBack: () => void;
+}
+
 const Header = ({ onLogout }: HeaderProps) => (
   <header className="bg-white border-b border-gray-200 py-4 px-6 flex justify-between items-center sticky top-0 z-50">
     <div className="flex items-center gap-2">
@@ -223,7 +227,7 @@ const AuthScreen = ({ initialMode = 'login', onLogin, onBackHome, onModeChange }
   );
 };
 
-const ApplicationForm = ({ onBack }) => {
+const ApplicationForm = ({ onBack }: ApplicationFormProps) => {
   const [isOVC, setIsOVC] = useState(false);
 
   const steps = [
@@ -431,12 +435,12 @@ const ApplicationForm = ({ onBack }) => {
   );
 };
 
-const AuthExperience = ({ onBackHome, initialMode = 'login', onModeChange, onNavigateToGuestPortal }) => {
+const AuthExperience = ({ onBackHome, initialMode = 'login', onModeChange, onNavigateToGuestPortal }: AuthExperienceProps) => {
   const [view, setView] = useState('auth');
 
   const handleLogin = () => setView('dashboard');
   const handleLogout = () => setView('auth');
-  const handleNavigate = (page) => {
+  const handleNavigate = (page: string) => {
     if (page === 'application') {
       setView('application');
     } else if (page === 'guest') {
@@ -467,4 +471,3 @@ const AuthExperience = ({ onBackHome, initialMode = 'login', onModeChange, onNav
 };
 
 export default AuthExperience;
-const AuthExperience = ({ onBackHome, initialMode = 'login', onModeChange, onNavigateToGuestPortal }: AuthExperienceProps) => {
