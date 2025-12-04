@@ -101,29 +101,29 @@ const Footer = () => (
 );
 
 const AuthScreen = ({ initialMode = 'login', onLogin, onBackHome, onModeChange }) => {
-  const [mode, setMode] = useState(initialMode);
+ const [mode, setMode] = useState(initialMode);
 
-  const updateMode = (value) => {
-    setMode(value);
-    onModeChange?.(value);
-  };
+ const updateMode = (value) => {
+   setMode(value);
+   onModeChange?.(value);
+ };
 
-  return (
-    <div className="min-h-screen flex">
-      {/* Left side - Image */}
-      <div className="hidden lg:flex lg:w-1/2 relative">
-        <ImageWithFallback
-          src={engineeringImage}
-          alt="Engineering building"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#800020]/80 to-black/80 flex items-center justify-center p-12">
-          <div className="text-white max-w-md">
-            <h1 className="text-4xl mb-4">Welcome to Bonno</h1>
-            <p className="text-lg text-gray-200">
-              Find your perfect accommodation - whether on-campus or off-campus. 
-              Start your housing journey today.
-            </p>
+ return (
+    <div className="min-h-screen flex flex-col lg:flex-row">
+     {/* Left side - Image */}
+      <div className="flex h-64 lg:h-auto lg:w-1/2 relative">
+       <ImageWithFallback
+         src={engineeringImage}
+         alt="Engineering building"
+          className="w-full h-full object-cover"
+       />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#800020]/80 to-black/80 flex items-center justify-center p-6 lg:p-12">
+         <div className="text-white max-w-md">
+            <h1 className="text-2xl lg:text-4xl mb-2 lg:mb-4">Welcome to Bonno</h1>
+            <p className="text-base lg:text-lg text-gray-200">
+             Find your perfect accommodation - whether on-campus or off-campus. 
+             Start your housing journey today.
+           </p>
           </div>
         </div>
       </div>
