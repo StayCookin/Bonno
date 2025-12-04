@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import engineeringFallback from '../assets/engineering.png';
 
 interface ImageWithFallbackProps {
   src: string;
@@ -10,7 +11,7 @@ interface ImageWithFallbackProps {
 
 export function ImageWithFallback({ 
   src, 
-  fallbackSrc = 'engineering.jpeg', // Engineering fallback image
+  fallbackSrc = engineeringFallback, // Use engineering.jpeg as fallback
   alt, 
   className,
   onError
