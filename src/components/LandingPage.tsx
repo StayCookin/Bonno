@@ -334,13 +334,13 @@ export default function LandingPage({ onNavigateToAuth, onNavigateToGuestPortal 
                     </div>
 
                     <div>
-                        <h4>Contact</h4>
-                        <ul>
-                            <li>Email: housing@bonno.ub.bw</li>
-                            <li>Phone: +267 123-4567</li>
-                            <li>Location: University of Botswana</li>
-                        </ul>
-                    </div>
+                       <h4>Contact</h4>
+                       <ul>
+                            <li>Email: [Contact email pending]</li>
+                            <li>Phone: [Contact phone pending]</li>
+                           <li>Location: University of Botswana</li>
+                       </ul>
+                   </div>
                 </div>
                 <p className="footer-bottom">@ 2025 Bonno - All rights reserved.</p>
             </footer>

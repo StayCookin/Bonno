@@ -208,13 +208,13 @@ export default function GuestPortal({ onBack: onBackToLanding }: GuestPortalProp
                                                 <label htmlFor="guestPhone" className="block text-sm font-medium text-gray-700">
                                                     Phone Number *
                                                 </label>
-                                                <input
-                                                    id="guestPhone"
-                                                    type="tel"
-                                                    placeholder="+267 71234567"
-                                                    value={guestPhone}
-                                                    onChange={(e) => setGuestPhone(e.target.value)}
-                                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#800020] focus:border-transparent outline-none transition-all"
+                                               <input
+                                                   id="guestPhone"
+                                                   type="tel"
+                                                    placeholder="Enter phone number"
+                                                   value={guestPhone}
+                                                   onChange={(e) => setGuestPhone(e.target.value)}
+                                                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#800020] focus:border-transparent outline-none transition-all"
                                                 />
                                             </div>
                                             <div className="space-y-2">
@@ -277,13 +277,13 @@ export default function GuestPortal({ onBack: onBackToLanding }: GuestPortalProp
                                                 <label htmlFor="residentRoom" className="block text-sm font-medium text-gray-700">
                                                     Room Number *
                                                 </label>
-                                                <input
-                                                    id="residentRoom"
-                                                    type="text"
-                                                    placeholder="e.g., 204"
-                                                    value={residentRoom}
-                                                    onChange={(e) => setResidentRoom(e.target.value)}
-                                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#800020] focus:border-transparent outline-none transition-all"
+                                               <input
+                                                   id="residentRoom"
+                                                   type="text"
+                                                    placeholder="Enter room number"
+                                                   value={residentRoom}
+                                                   onChange={(e) => setResidentRoom(e.target.value)}
+                                                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#800020] focus:border-transparent outline-none transition-all"
                                                 />
                                             </div>
                                         </div>

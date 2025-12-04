@@ -46,12 +46,12 @@ const Header = ({ onLogout }: HeaderProps) => (
       <span className="text-xl font-bold text-[#8B1E3F]">Bonno</span>
     </div>
     <div className="flex items-center gap-4">
-      <div className="flex items-center gap-2 text-gray-600">
-        <User className="h-5 w-5" />
-        <span className="hidden sm:inline">John Doe</span>
-      </div>
-      <button
-        onClick={onLogout}
+     <div className="flex items-center gap-2 text-gray-600">
+       <User className="h-5 w-5" />
+        <span className="hidden sm:inline">[Student Name]</span>
+     </div>
+     <button
+       onClick={onLogout}
         className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 text-sm font-medium transition-colors"
       >
         <LogOut className="h-4 w-4" />
@@ -86,11 +86,11 @@ const Footer = () => (
         </ul>
       </div>
       <div>
-        <h3 className="font-bold text-[#8B1E3F] mb-4">Contact</h3>
-        <p className="text-sm text-gray-600">housing@bonno.ub.bw</p>
-        <p className="text-sm text-gray-600">+267 123-4567</p>
-      </div>
-    </div>
+       <h3 className="font-bold text-[#8B1E3F] mb-4">Contact</h3>
+       <p className="text-sm text-gray-600">housing@bonno.ub.bw</p>
+        <p className="text-sm text-gray-600">[Contact phone pending]</p>
+     </div>
+   </div>
     <div className="max-w-6xl mx-auto mt-8 pt-8 border-t border-gray-100 text-center text-sm text-gray-500">
       © 2025 Bonno Student Accommodation. All rights reserved.
     </div>
@@ -156,22 +156,22 @@ const AuthScreen = ({ initialMode = 'login', onLogin, onBackHome, onModeChange }
               {mode === 'signup' && (
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                  <input
-                    type="text"
-                    placeholder="John Doe"
-                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#8B1E3F] focus:border-transparent outline-none transition-all"
-                  />
-                </div>
+                 <input
+                   type="text"
+                    placeholder="Enter your full name"
+                   className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#8B1E3F] focus:border-transparent outline-none transition-all"
+                 />
+               </div>
               )}
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Student ID</label>
-                <input
-                  type="text"
-                  placeholder="STU123456"
-                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#8B1E3F] focus:border-transparent outline-none transition-all"
-                />
-              </div>
+               <input
+                 type="text"
+                  placeholder="Enter your student ID"
+                 className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#8B1E3F] focus:border-transparent outline-none transition-all"
+               />
+             </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
@@ -285,11 +285,11 @@ const Dashboard = ({ onNavigate }) => (
     </div>
 
     <div className="bg-white border border-gray-200 rounded-xl p-8 mb-8">
-      <h3 className="font-bold text-lg text-gray-900 mb-2">Need Help Deciding?</h3>
-      <p className="text-gray-600">
-        Our housing advisors are available to help you choose the best option for your needs. Contact us at <span className="text-[#8B1E3F] font-medium">housing@bonno.ub.bw</span> or call <span className="text-[#8B1E3F] font-medium">+267 123-4567</span>.
-      </p>
-    </div>
+     <h3 className="font-bold text-lg text-gray-900 mb-2">Need Help Deciding?</h3>
+     <p className="text-gray-600">
+        Our housing advisors are available to help you choose the best option for your needs. Contact us at <span className="text-[#8B1E3F] font-medium">housing@bonno.ub.bw</span> or call <span className="text-[#8B1E3F] font-medium">[Contact phone pending]</span>.
+     </p>
+   </div>
 
     <div className="bg-[#FDF2F4] border border-[#F5D0DB] rounded-xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
       <div className="flex items-start gap-4">
@@ -368,12 +368,12 @@ const ApplicationForm = ({ onBack }) => {
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
-                <input
-                  type="text"
-                  defaultValue="John Doe"
-                  className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#8B1E3F] focus:border-transparent outline-none"
-                />
-              </div>
+               <input
+                 type="text"
+                  placeholder="Enter your full name"
+                 className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#8B1E3F] focus:border-transparent outline-none"
+               />
+             </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Student ID *</label>
                 <input
