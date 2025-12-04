@@ -26,6 +26,7 @@ function App() {
           initialMode={authMode}
           onModeChange={setAuthMode}
           onClose={() => setScreen("landing")}
+          onNavigateToGuestPortal={() => setScreen("guest")}
         />
       )}
 
