@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import ubFallback from '../assets/UBotswana.png';
 
 interface ImageWithFallbackProps {
   src: string;
@@ -10,7 +11,7 @@ interface ImageWithFallbackProps {
 
 export function ImageWithFallback({ 
   src, 
-  fallbackSrc = 'https://images.unsplash.com/photo-1581094794329-c8112b89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', // Engineering fallback image
+  fallbackSrc = ubFallback, // Use UBotswana.png as fallback (engineering/campus image)
   alt, 
   className,
   onError
