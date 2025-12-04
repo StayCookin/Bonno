@@ -3,9 +3,12 @@ import { ArrowLeft, QrCode, Download, UserPlus, Building2, Calendar, Clock } fro
 import '../guest-styles.css';
 import { useElectron } from '../hooks/useElectron';
 
-export default function GuestPortal() {
+interface GuestPortalProps {
+    onBack: () => void;
+}
+
+export default function GuestPortal({ onBack: onBackToLanding }: GuestPortalProps) {
     const { isElectron, printPass } = useElectron();
-    const [showPortal, setShowPortal] = useState(true);
     const [guestName, setGuestName] = useState('');
     const [guestPhone, setGuestPhone] = useState('');
     const [guestIdNumber, setGuestIdNumber] = useState('');
@@ -20,7 +23,7 @@ export default function GuestPortal() {
 
     const buildingOptions = ['Vegas', '478', '479', '477', '474', '475', '476', 'Barracks', 'Single Rooms'];
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         const code = `BNO${Date.now().toString().slice(-8)}`;
         setPassCode(code);
@@ -31,7 +34,7 @@ export default function GuestPortal() {
         alert('Digital pass downloaded. Present this at security.');
     };
 
-    const onBack = () => {
+    const resetForm = () => {
         setPassGenerated(false);
         setGuestName('');
         setGuestPhone('');
@@ -51,7 +54,7 @@ export default function GuestPortal() {
                 <div className="container mx-auto px-4 py-8">
                     <div className="max-w-2xl mx-auto">
                         <button 
-                            onClick={onBack}
+                            onClick={resetForm}
                             className="mb-6 flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
                         >
                             <ArrowLeft className="w-4 h-4"/>
@@ -136,7 +139,7 @@ export default function GuestPortal() {
                                         Download Pass
                                     </button>
                                     <button 
-                                        onClick={onBack}
+                                        onClick={resetForm}
                                         className="flex-1 border border-gray-300 text-gray-700 px-4 py-3 rounded-lg font-medium hover:bg-gray-50 transition-colors"
                                     >
                                         Done
@@ -155,11 +158,13 @@ export default function GuestPortal() {
             <div className="container mx-auto px-4 py-8">
                 <div className="max-w-2xl mx-auto">
                     <button 
-                        onClick={onBack}
+                        onClick={() => {
+                            onBackToLanding();
+                        }}
                         className="mb-6 flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
                     >
                         <ArrowLeft className="w-4 h-4"/>
-                        Back to Dashboard
+                        Back to Home
                     </button>
           
                     <div className="bg-white rounded-lg shadow-lg border border-gray-200">

@@ -15,7 +15,31 @@ import {
   HelpCircle
 } from 'lucide-react';
 
-const Header = ({ onLogout }) => (
+interface HeaderProps {
+  onLogout: () => void;
+}
+
+interface AuthExperienceProps {
+  onLogin: () => void;
+  onBackHome: () => void;
+  onModeChange: (value: string) => void;
+}
+
+interface PageNavigationProps {
+  onNavigate: (page: string) => void;
+}
+
+interface AppPreviewProps {
+  onBack: () => void;
+}
+
+interface AuthPageProps {
+  onBackHome: () => void;
+  currentMode: string;
+  onModeChange: (mode: string) => void;
+}
+
+const Header = ({ onLogout }: HeaderProps) => (
   <header className="bg-white border-b border-gray-200 py-4 px-6 flex justify-between items-center sticky top-0 z-50">
     <div className="flex items-center gap-2">
       <Building2 className="text-[#8B1E3F] h-6 w-6" />
