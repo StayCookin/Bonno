@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest Portal Test</title>
+    <style>
+        /* Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: system-ui, -apple-system, sans-serif; }
+        
+        /* Tailwind-like classes */
+        .min-h-screen { min-height: 100vh; }
+        .bg-gradient-to-br { background: linear-gradient(to bottom right, #f9fafb, white); }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 1rem; }
+        .max-w-2xl { max-width: 42rem; margin: 0 auto; }
+        .px-4 { padding-left: 1rem; padding-right: 1rem; }
+        .py-8 { padding-top: 2rem; padding-bottom: 2rem; }
+        .mb-6 { margin-bottom: 1.5rem; }
+        .flex { display: flex; }
+        .items-center { align-items: center; }
+        .gap-2 { gap: 0.5rem; }
+        .gap-3 { gap: 0.75rem; }
+        .text-gray-700 { color: #374151; }
+        .hover\:bg-gray-100:hover { background-color: #f3f4f6; }
+        .rounded-lg { border-radius: 0.5rem; }
+        .transition-colors { transition: color 0.15s, background-color 0.15s; }
+        .bg-white { background-color: white; }
+        .shadow-lg { box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+        .border { border: 1px solid; }
+        .border-gray-200 { border-color: #e5e7eb; }
+        .p-6 { padding: 1.5rem; }
+        .text-2xl { font-size: 1.5rem; }
+        .font-bold { font-weight: 700; }
+        .text-gray-900 { color: #111827; }
+        .text-gray-600 { color: #4b5566; }
+        .mt-1 { margin-top: 0.25rem; }
+        .space-y-6 > * + * { margin-top: 1.5rem; }
+        .space-y-4 > * + * { margin-top: 1rem; }
+        .space-y-2 > * + * { margin-top: 0.5rem; }
+        .block { display: block; }
+        .text-sm { font-size: 0.875rem; }
+        .font-medium { font-weight: 500; }
+        .w-full { width: 100%; }
+        .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+        .border-gray-300 { border-color: #d1d5db; }
+        .focus\:ring-2:focus { box-shadow: 0 0 0 2px #800020; }
+        .focus\:border-transparent:focus { border-color: transparent; }
+        .outline-none { outline: none; }
+        .transition-all { transition: all 0.15s; }
+        .grid { display: grid; }
+        .md\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+        .gap-4 { gap: 1rem; }
+        .pt-4 { padding-top: 1rem; }
+        .border-t { border-top: 1px solid #e5e7eb; }
+        .bg-\[\#800020\] { background-color: #800020 !important; }
+        .text-\[\#800020\] { color: #800020 !important; }
+        .hover\:bg-\[\#600018\]:hover { background-color: #600018 !important; }
+        .text-white { color: white; }
+        .px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+        .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+        .text-lg { font-size: 1.125rem; }
+        .justify-center { justify-content: center; }
+        .mt-6 { margin-top: 1.5rem; }
+        
+        /* Form inputs */
+        input, select {
+            width: 100%;
+            padding: 0.5rem 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            transition: all 0.15s;
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: transparent;
+            box-shadow: 0 0 0 2px #800020;
+        }
+        
+        .icon { width: 1.25rem; height: 1.25rem; display: inline-block; vertical-align: middle; }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen bg-gradient-to-br">
+        <div class="container px-4 py-8">
+            <div class="max-w-2xl">
+                <h1 class="text-2xl font-bold text-gray-900 mb-6">Guest Portal Test</h1>
+                
+                <div class="bg-white rounded-lg shadow-lg border border-gray-200 p-6">
+                    <p class="text-gray-600 mb-6">
+                        This is a test page to verify that the Guest Portal styling works correctly.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                Sample Input Field
+                            </label>
+                            <input type="text" placeholder="Enter text here" />
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                Sample Select
+                            </label>
+                            <select>
+                                <option>Option 1</option>
+                                <option>Option 2</option>
+                                <option>Option 3</option>
+                            </select>
+                        </div>
+                        
+                        <button class="w-full bg-[#800020] text-white px-6 py-3 rounded-lg font-bold text-lg hover:bg-[#600018] transition-colors flex items-center justify-center gap-2">
+                            Test Button
+                        </button>
+                    </div>
+                    
+                    <div class="mt-6 p-4" style="background-color: rgba(128,0,32,0.05); border: 1px solid rgba(128,0,32,0.2); border-radius: 0.5rem;">
+                        <p class="text-sm text-[#800020] font-medium">
+                            If you can see this styled properly with maroon colors, the CSS is working!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
