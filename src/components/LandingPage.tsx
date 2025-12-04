@@ -1,5 +1,4 @@
 import { Building2, Shield } from 'lucide-react';
-import React from 'react';
 import { UserPlus, LogIn, Users, Bed, Home, Wifi, BookOpen, Heart } from 'lucide-react';
 import UBotswana from '../assets/UBotswana.png';
 import { Button } from './ui/button';
@@ -7,8 +6,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/
 
 import './Landing Page.css'; 
 
+interface LandingPageProps {
+  onNavigateToAuth: () => void;
+  onNavigateToGuestPortal: () => void;
+}
 
-export default function LandingPage({ onNavigateToAuth, onNavigateToGuestPortal }) {
+export default function LandingPage({ onNavigateToAuth, onNavigateToGuestPortal }: LandingPageProps) {
     return (
         <div className="landing-root">
             <section className="hero-section">
@@ -331,13 +334,13 @@ export default function LandingPage({ onNavigateToAuth, onNavigateToGuestPortal 
                     </div>
 
                     <div>
-                        <h4>Contact</h4>
-                        <ul>
-                            <li>Email: housing@bonno.ub.bw</li>
-                            <li>Phone: +267 123-4567</li>
-                            <li>Location: University of Botswana</li>
-                        </ul>
-                    </div>
+                       <h4>Contact</h4>
+                       <ul>
+                            <li>Email: [Contact email pending]</li>
+                            <li>Phone: [Contact phone pending]</li>
+                           <li>Location: University of Botswana</li>
+                       </ul>
+                   </div>
                 </div>
                 <p className="footer-bottom">@ 2025 Bonno - All rights reserved.</p>
             </footer>

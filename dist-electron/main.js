@@ -1,58 +1,41 @@
-import { ipcMain, app, BrowserWindow, shell, Menu } from "electron";
-import * as path from "path";
-import * as url from "url";
-if (process.env.NODE_ENV !== "production") {
-  require("electron-reload")(__dirname, {
-    electron: path.join(__dirname, "..", "node_modules", ".bin", "electron"),
-    hardResetMethod: "exit"
-  });
-}
-let mainWindow = null;
-const isDev = process.env.NODE_ENV !== "production";
-const isMac = process.platform === "darwin";
-function createWindow() {
-  mainWindow = new BrowserWindow({
+import { ipcMain as u, app as o, BrowserWindow as i, shell as a, Menu as p } from "electron";
+import * as r from "path";
+import * as f from "url";
+process.env.NODE_ENV !== "production" && require("electron-reload")(__dirname, {
+  electron: r.join(__dirname, "..", "node_modules", ".bin", "electron"),
+  hardResetMethod: "exit"
+});
+let e = null;
+const c = process.env.NODE_ENV !== "production", s = process.platform === "darwin";
+function d() {
+  e = new i({
     width: 1200,
     height: 800,
     minWidth: 800,
     minHeight: 600,
     webPreferences: {
-      nodeIntegration: false,
-      contextIsolation: true,
-      preload: path.join(__dirname, "preload.js")
+      nodeIntegration: !1,
+      contextIsolation: !0,
+      preload: r.join(__dirname, "preload.js")
     },
-    icon: path.join(__dirname, "../public/icon.png"),
-    titleBarStyle: isMac ? "hiddenInset" : "default",
+    icon: r.join(__dirname, "../public/icon.png"),
+    titleBarStyle: s ? "hiddenInset" : "default",
     backgroundColor: "#ffffff",
-    show: false
-  });
-  mainWindow.once("ready-to-show", () => {
-    mainWindow?.show();
-    if (isDev) {
-      mainWindow?.webContents.openDevTools();
-    }
-  });
-  if (isDev) {
-    mainWindow.loadURL("http://localhost:5173");
-  } else {
-    mainWindow.loadURL(
-      url.format({
-        pathname: path.join(__dirname, "../dist/index.html"),
-        protocol: "file:",
-        slashes: true
-      })
-    );
-  }
-  mainWindow.on("closed", () => {
-    mainWindow = null;
-  });
-  mainWindow.webContents.setWindowOpenHandler(({ url: url2 }) => {
-    shell.openExternal(url2);
-    return { action: "deny" };
-  });
+    show: !1
+  }), e.once("ready-to-show", () => {
+    e == null || e.show(), c && (e == null || e.webContents.openDevTools());
+  }), c ? e.loadURL("http://localhost:5173") : e.loadURL(
+    f.format({
+      pathname: r.join(__dirname, "../dist/index.html"),
+      protocol: "file:",
+      slashes: !0
+    })
+  ), e.on("closed", () => {
+    e = null;
+  }), e.webContents.setWindowOpenHandler(({ url: t }) => (a.openExternal(t), { action: "deny" }));
 }
-function createMenu() {
-  const template = [
+function b() {
+  const t = [
     {
       label: "File",
       submenu: [
@@ -60,11 +43,11 @@ function createMenu() {
           label: "New Guest Pass",
           accelerator: "CmdOrCtrl+N",
           click: () => {
-            mainWindow?.webContents.send("new-guest-pass");
+            e == null || e.webContents.send("new-guest-pass");
           }
         },
         { type: "separator" },
-        isMac ? { role: "close" } : { role: "quit" }
+        s ? { role: "close" } : { role: "quit" }
       ]
     },
     {
@@ -96,7 +79,7 @@ function createMenu() {
       label: "Window",
       submenu: [
         { role: "minimize" },
-        ...isMac ? [{ type: "separator" }, { role: "front" }, { type: "separator" }, { role: "window" }] : [{ role: "close" }]
+        ...s ? [{ type: "separator" }, { role: "front" }, { type: "separator" }, { role: "window" }] : [{ role: "close" }]
       ]
     },
     {
@@ -105,51 +88,39 @@ function createMenu() {
         {
           label: "About Bonno",
           click: () => {
-            shell.openExternal("https://bonno.com/about");
+            a.openExternal("https://bonno.com/about");
           }
         },
         {
           label: "Learn More",
           click: () => {
-            shell.openExternal("https://bonno.com");
+            a.openExternal("https://bonno.com");
           }
         }
       ]
     }
-  ];
-  const menu = Menu.buildFromTemplate(template);
-  Menu.setApplicationMenu(menu);
+  ], n = p.buildFromTemplate(t);
+  p.setApplicationMenu(n);
 }
-ipcMain.handle("app-version", () => {
-  return app.getVersion();
-});
-ipcMain.handle("print-pass", async (event, passData) => {
-  const win = BrowserWindow.getFocusedWindow();
-  if (win) {
-    win.webContents.print({
-      silent: false,
-      printBackground: true,
-      deviceName: ""
-    });
-  }
-});
-app.whenReady().then(() => {
-  createWindow();
-  createMenu();
-  app.on("activate", () => {
-    if (BrowserWindow.getAllWindows().length === 0) {
-      createWindow();
-    }
+u.handle("app-version", () => o.getVersion());
+u.handle("print-pass", async (t, n) => {
+  const l = i.getFocusedWindow();
+  l && l.webContents.print({
+    silent: !1,
+    printBackground: !0,
+    deviceName: ""
   });
 });
-app.on("window-all-closed", () => {
-  if (!isMac) {
-    app.quit();
-  }
+o.whenReady().then(() => {
+  d(), b(), o.on("activate", () => {
+    i.getAllWindows().length === 0 && d();
+  });
 });
-app.on("web-contents-created", (event, contents) => {
-  contents.on("new-window", (event2, navigationUrl) => {
-    event2.preventDefault();
-    shell.openExternal(navigationUrl);
+o.on("window-all-closed", () => {
+  s || o.quit();
+});
+o.on("web-contents-created", (t, n) => {
+  n.on("new-window", (l, m) => {
+    l.preventDefault(), a.openExternal(m);
   });
 });
