@@ -111,7 +111,7 @@ const AuthScreen = ({ initialMode = 'login', onLogin, onBackHome, onModeChange }
   return (
     <div className="min-h-screen flex">
       {/* Left side - Image */}
-      <div className="flex w-full lg:w-1/2 relative">
+      <div className="hidden lg:flex lg:w-1/2 relative">
         <ImageWithFallback
           src={engineeringImage}
           alt="Engineering building"
