@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { ArrowLeft, QrCode, Download, UserPlus, Building2, Calendar, Clock } from 'lucide-react';
 import '../guest-styles.css';
+import { useElectron } from '../hooks/useElectron';
 
 export default function GuestPortal() {
+    const { isElectron, printPass } = useElectron();
     const [showPortal, setShowPortal] = useState(true);
     const [guestName, setGuestName] = useState('');
     const [guestPhone, setGuestPhone] = useState('');

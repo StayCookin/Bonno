@@ -102,52 +102,111 @@
 
 /* FEATURES */
 .features-section {
-  padding: 80px 20px;
+  padding: 100px 20px;
+  background: #ffffff;
+  position: relative;
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
+  animation: fadeInUp 0.8s ease-out;
 }
 
 .section-title {
-  font-size: 36px;
-  color: #800020;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+  letter-spacing: -0.5px;
 }
 
 .section-sub {
-  font-size: 18px;
-  color: #555;
+  color: #666;
+  font-size: 1.125rem;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .feature-card {
-  padding: 20px;
-  border: 2px solid #eee;
-  border-radius: 10px;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
   text-align: center;
-  transition: 0.3s;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(128, 0, 32, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #800020, #a0002a);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
 }
 
 .feature-card:hover {
-  border-color: #800020;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transform: translateY(-8px);
+  box-shadow: 0 8px 30px rgba(128, 0, 32, 0.15);
+}
+
+.feature-card:hover::before {
+  transform: scaleX(1);
 }
 
 .feature-icon {
-  width: 55px;
-  height: 55px;
-  background: rgba(128, 0, 32, 0.15);
-  border-radius: 10px;
-  margin: 0 auto 10px auto;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #800020, #b00030);
+  border-radius: 50%;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: white;
+  box-shadow: 0 4px 15px rgba(128, 0, 32, 0.3);
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 6px 20px rgba(128, 0, 32, 0.4);
+}
+
+.feature-icon svg {
+  width: 28px;
+  height: 28px;
+  stroke-width: 2;
+}
+
+.feature-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+  color: #333;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+}
+
+.feature-card p {
+  color: #666;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  min-height: 60px;
 }
 
 /* CTA */
@@ -218,4 +277,140 @@
   text-align: center;
   opacity: 0.6;
   margin-top: 25px;
+}
+
+/* HOUSING OPTIONS SECTION */
+.housing-options-section {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  position: relative;
+}
+
+.housing-grid {
+  display: grid;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  animation: fadeInUp 1s ease-out;
+}
+
+@media (min-width: 768px) {
+  .housing-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .housing-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.housing-card {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(128, 0, 32, 0.1);
+}
+
+.housing-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #800020, #a0002a);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.housing-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(128, 0, 32, 0.15);
+}
+
+.housing-card:hover::before {
+  transform: scaleX(1);
+}
+
+.housing-icon {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, #800020, #a0002a);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  color: white;
+  box-shadow: 0 4px 15px rgba(128, 0, 32, 0.25);
+  transition: all 0.3s ease;
+}
+
+.housing-card:hover .housing-icon {
+  transform: rotate(-5deg) scale(1.05);
+  box-shadow: 0 6px 20px rgba(128, 0, 32, 0.35);
+}
+
+.housing-icon .icon {
+  width: 35px;
+  height: 35px;
+  stroke-width: 1.5;
+}
+
+.housing-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+  color: #333;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.housing-card p {
+  color: #666;
+  line-height: 1.7;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  min-height: 80px;
+}
+
+.housing-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.feature-tag {
+  background: rgba(128, 0, 32, 0.08);
+  color: #800020;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid rgba(128, 0, 32, 0.15);
+  transition: all 0.2s ease;
+}
+
+.housing-card:hover .feature-tag {
+  background: rgba(128, 0, 32, 0.12);
+  border-color: rgba(128, 0, 32, 0.25);
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

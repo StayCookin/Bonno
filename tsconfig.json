@@ -15,11 +15,16 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
-    }
+    },
+    "typeRoots": ["./node_modules/@types", "./src/@types"],
+    "types": ["vite/client", "node"]
   },
-  "include": ["src"],
+  "include": ["src", "electron.d.ts", "electron/**/*.ts"],
+  "exclude": ["node_modules", "dist", "dist-electron", "release"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
