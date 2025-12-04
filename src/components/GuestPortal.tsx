@@ -5,9 +5,10 @@ import { useElectron } from '../hooks/useElectron';
 
 interface GuestPortalProps {
     onBack: () => void;
+    fromDashboard?: boolean;
 }
 
-export default function GuestPortal({ onBack: onBackToLanding }: GuestPortalProps) {
+export default function GuestPortal({ onBack: onBackToLanding, fromDashboard = false }: GuestPortalProps) {
     const { isElectron, printPass } = useElectron();
     const [guestName, setGuestName] = useState('');
     const [guestPhone, setGuestPhone] = useState('');
@@ -158,14 +159,14 @@ export default function GuestPortal({ onBack: onBackToLanding }: GuestPortalProp
             <div className="container mx-auto px-4 py-8">
                 <div className="max-w-2xl mx-auto">
                     <button 
-                        onClick={() => {
-                            onBackToLanding();
-                        }}
-                        className="mb-6 flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
-                    >
-                        <ArrowLeft className="w-4 h-4"/>
-                        Back to Home
-                    </button>
+                       onClick={() => {
+                           onBackToLanding();
+                       }}
+                       className="mb-6 flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+                   >
+                       <ArrowLeft className="w-4 h-4"/>
+                        {fromDashboard ? "Back to Dashboard" : "Back to Home"}
+                   </button>
           
                     <div className="bg-white rounded-lg shadow-lg border border-gray-200">
                         <div className="p-6 border-b border-gray-200">
