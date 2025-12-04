@@ -16,7 +16,7 @@ import {
 } from 'lucide-react';
 import { Dashboard } from './Dashboard';
 import { ImageWithFallback } from './ImageWithFallback';
-import ubLogo from '../assets/UBotswana.png';
+import engineeringImage from '../assets/engineering.png';
 
 interface HeaderProps {
   onLogout: () => void;
@@ -113,8 +113,8 @@ const AuthScreen = ({ initialMode = 'login', onLogin, onBackHome, onModeChange }
       {/* Left side - Image */}
       <div className="hidden lg:flex lg:w-1/2 relative">
         <ImageWithFallback
-          src={ubLogo}
-          alt="University of Botswana logo"
+          src={engineeringImage}
+          alt="Engineering building"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-[#800020]/80 to-black/80 flex items-center justify-center p-12">
