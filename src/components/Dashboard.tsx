@@ -1,4 +1,5 @@
 import { Building2, Home, Users } from 'lucide-react';
+import { ImageWithFallback } from './ImageWithFallback';
 
 interface DashboardProps {
   onNavigate: (page: string) => void;
@@ -15,8 +16,9 @@ export function Dashboard({ onNavigate }: DashboardProps) {
       <div className="grid md:grid-cols-2 gap-8 mb-12">
         <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
           <div className="h-64 bg-gray-200 relative">
-            <img
+            <ImageWithFallback
               src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+              fallbackSrc="https://images.unsplash.com/photo-1581094794329-c8112b89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
               alt="Dorm Room"
               className="w-full h-full object-cover"
             />
@@ -83,6 +85,31 @@ export function Dashboard({ onNavigate }: DashboardProps) {
             >
               Browse Off-Campus
             </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Engineering Students Section */}
+      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-8 mb-8">
+        <div className="flex flex-col md:flex-row gap-6 items-center">
+          <div className="w-full md:w-1/3">
+            <ImageWithFallback
+              src="engineering"  
+              fallbackSrc="https://images.unsplash.com/photo-1581094794329-c8112b89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+              alt="Engineering Building"
+              className="w-full h-48 object-cover rounded-lg shadow-md"
+            />
+          </div>
+          <div className="flex-1">
+            <h3 className="font-bold text-2xl text-gray-900 mb-3">Engineering Students Housing</h3>
+            <p className="text-gray-600 mb-4">
+              Special accommodation near the Engineering Faculty. Shorter walking distance to labs and workshops.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">Near Engineering Labs</span>
+              <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">24/7 Study Rooms</span>
+              <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">High-Speed WiFi</span>
+            </div>
           </div>
         </div>
       </div>

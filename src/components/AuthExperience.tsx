@@ -15,6 +15,7 @@ import {
   HelpCircle
 } from 'lucide-react';
 import { Dashboard } from './Dashboard';
+import { ImageWithFallback } from './ImageWithFallback';
 
 interface HeaderProps {
   onLogout: () => void;
@@ -107,18 +108,38 @@ const AuthScreen = ({ initialMode = 'login', onLogin, onBackHome, onModeChange }
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
-      <div className="p-6">
-        <button
-          onClick={onBackHome}
-          className="flex items-center gap-2 text-gray-600 font-medium hover:text-[#8B1E3F] transition-colors"
-        >
-          <ArrowLeft className="h-5 w-5" />
-          Back to Home
-        </button>
+    <div className="min-h-screen flex">
+      {/* Left side - Image */}
+      <div className="hidden lg:flex lg:w-1/2 relative">
+        <ImageWithFallback
+          src="https://images.unsplash.com/photo-1635936612557-3491e1db5587?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0cmVlcyUyMGZvcmVzdCUyMG5hdHVyZXxlbnwxfHx8fDE3NjI2ODAyNjJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+          alt="Nature background"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#800020]/80 to-black/80 flex items-center justify-center p-12">
+          <div className="text-white max-w-md">
+            <h1 className="text-4xl mb-4">Welcome to Bonno</h1>
+            <p className="text-lg text-gray-200">
+              Find your perfect accommodation - whether on-campus or off-campus. 
+              Start your housing journey today.
+            </p>
+          </div>
+        </div>
       </div>
 
-      <div className="flex-1 flex items-center justify-center px-4 pb-20">
+      {/* Right side - Auth Form */}
+      <div className="flex-1 lg:w-1/2 bg-gray-50 overflow-y-auto">
+        <div className="p-6">
+          <button
+            onClick={onBackHome}
+            className="flex items-center gap-2 text-gray-600 font-medium hover:text-[#8B1E3F] transition-colors"
+          >
+            <ArrowLeft className="h-5 w-5" />
+            Back to Home
+          </button>
+        </div>
+
+        <div className="flex-1 flex items-center justify-center px-4 pb-20">
         <div className="w-full max-w-md">
           <div className="bg-gray-200 p-1 rounded-full grid grid-cols-2 mb-8">
             <button
@@ -201,6 +222,7 @@ const AuthScreen = ({ initialMode = 'login', onLogin, onBackHome, onModeChange }
             </form>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );
