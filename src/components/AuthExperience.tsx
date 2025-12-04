@@ -147,8 +147,8 @@ const AuthScreen = ({ initialMode = 'login', onLogin, onBackHome, onModeChange }
               onClick={() => updateMode('signup')}
               className={`py-2 text-sm font-medium rounded-full transition-all ${
                 mode === 'signup'
-                  ? 'bg-white text-gray-900 shadow-sm'
-                  : 'text-gray-500 hover:text-gray-700'
+                  ? 'bg-[#8B1E3F] text-white shadow-sm'
+                  : 'bg-transparent text-gray-700 hover:bg-gray-300'
               }`}
             >
               Sign Up
@@ -157,8 +157,8 @@ const AuthScreen = ({ initialMode = 'login', onLogin, onBackHome, onModeChange }
               onClick={() => updateMode('login')}
               className={`py-2 text-sm font-medium rounded-full transition-all ${
                 mode === 'login'
-                  ? 'bg-white text-gray-900 shadow-sm'
-                  : 'text-gray-500 hover:text-gray-700'
+                  ? 'bg-[#8B1E3F] text-white shadow-sm'
+                  : 'bg-transparent text-gray-700 hover:bg-gray-300'
               }`}
             >
               Login
