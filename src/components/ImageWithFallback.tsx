@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import engineeringFallback from '../assets/engineering.jpeg';
+import engineeringFallback from '../assets/engineering.png';
 
 interface ImageWithFallbackProps {
   src: string;
