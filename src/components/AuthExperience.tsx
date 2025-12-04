@@ -101,29 +101,29 @@ const Footer = () => (
 );
 
 const AuthScreen = ({ initialMode = 'login', onLogin, onBackHome, onModeChange }) => {
-  const [mode, setMode] = useState(initialMode);
+ const [mode, setMode] = useState(initialMode);
 
-  const updateMode = (value) => {
-    setMode(value);
-    onModeChange?.(value);
-  };
+ const updateMode = (value) => {
+   setMode(value);
+   onModeChange?.(value);
+ };
 
-  return (
-    <div className="min-h-screen flex">
-      {/* Left side - Image */}
-      <div className=" lg:flex lg:w-1/2 relative">
-        <ImageWithFallback
-          src={engineeringImage}
-          alt="Engineering building"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#800020]/80 to-black/80 flex items-center justify-center p-12">
-          <div className="text-white max-w-md">
-            <h1 className="text-4xl mb-4">Welcome to Bonno</h1>
-            <p className="text-lg text-gray-200">
-              Find your perfect accommodation - whether on-campus or off-campus. 
-              Start your housing journey today.
-            </p>
+ return (
+    <div className="min-h-screen flex flex-col lg:flex-row">
+     {/* Left side - Image */}
+      <div className="flex h-64 lg:h-auto lg:w-1/2 relative">
+       <ImageWithFallback
+         src={engineeringImage}
+         alt="Engineering building"
+          className="w-full h-full object-cover"
+       />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#800020]/80 to-black/80 flex items-center justify-center p-6 lg:p-12">
+         <div className="text-white max-w-md">
+            <h1 className="text-2xl lg:text-4xl mb-2 lg:mb-4">Welcome to Bonno</h1>
+            <p className="text-base lg:text-lg text-gray-200">
+             Find your perfect accommodation - whether on-campus or off-campus. 
+             Start your housing journey today.
+           </p>
           </div>
         </div>
       </div>
@@ -347,7 +347,7 @@ const ApplicationForm = ({ onBack }) => {
             </div>
           </section>
 
-          <section className="bg-[#FFF5F7] border border[#FCE7EC] rounded-xl p-6">
+          <section className="bg-[#FFF5F7] border border-[#FCE7EC] rounded-xl p-6">
             <label className="block font-medium text-gray-900 mb-4">Are you an Orphan or Vulnerable Child (OVC)? *</label>
             <div className="space-y-3 mb-6">
               <label className="flex items-center gap-3 p-3 bg-white border border-gray-200 rounded-lg cursor-pointer hover:border-[#8B1E3F] transition-colors">
@@ -392,7 +392,7 @@ const ApplicationForm = ({ onBack }) => {
                     <input
                       type="tel"
                       placeholder="768589804"
-                      className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#8B1E3F] focus-border-transparent outline-none"
+                      className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#8B1E3F] focus:border-transparent outline-none"
                     />
                   </div>
                   <div className="md:col-span-2">
@@ -409,7 +409,7 @@ const ApplicationForm = ({ onBack }) => {
                   <div className="md:col-span-2">
                     <label className="block text-sm font-medium text-gray-700 mb-1">Can your parent/guardian provide financial assistance? *</label>
                     <div className="relative">
-                      <select className="w-full px-4 py-2.5 bg-white border-2 border-[#8B1E3F]/30 rounded-lg focus:ring-2 focus:ring-[#8B1E3F] focus-border-transparent outline-none appearance-none">
+                      <select className="w-full px-4 py-2.5 bg-white border-2 border-[#8B1E3F]/30 rounded-lg focus:ring-2 focus:ring-[#8B1E3F] focus:border-transparent outline-none appearance-none">
                         <option>No - Unable to provide assistance</option>
                         <option>Yes - Full assistance</option>
                         <option>Yes - Partial assistance</option>
