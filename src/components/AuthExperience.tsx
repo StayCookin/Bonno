@@ -23,23 +23,17 @@ interface HeaderProps {
 }
 
 interface AuthExperienceProps {
+  onBackHome: () => void;
+  initialMode?: string;
+  onModeChange: (value: string) => void;
+  onNavigateToGuestPortal: () => void;
+}
+
+interface AuthScreenProps {
+  initialMode?: string;
   onLogin: () => void;
   onBackHome: () => void;
   onModeChange: (value: string) => void;
-}
-
-interface PageNavigationProps {
-  onNavigate: (page: string) => void;
-}
-
-interface AppPreviewProps {
-  onBack: () => void;
-}
-
-interface AuthPageProps {
-  onBackHome: () => void;
-  currentMode: string;
-  onModeChange: (mode: string) => void;
 }
 
 const Header = ({ onLogout }: HeaderProps) => (
@@ -100,13 +94,13 @@ const Footer = () => (
   </footer>
 );
 
-const AuthScreen = ({ initialMode = 'login', onLogin, onBackHome, onModeChange }) => {
+const AuthScreen = ({ initialMode = 'login', onLogin, onBackHome, onModeChange }: AuthScreenProps) => {
  const [mode, setMode] = useState(initialMode);
 
- const updateMode = (value) => {
-   setMode(value);
-   onModeChange?.(value);
- };
+ const updateMode = (value: string) => {
+  setMode(value);
+  onModeChange?.(value);
+};
 
  return (
     <div className="min-h-screen flex flex-col lg:flex-row">
@@ -473,3 +467,4 @@ const AuthExperience = ({ onBackHome, initialMode = 'login', onModeChange, onNav
 };
 
 export default AuthExperience;
+const AuthExperience = ({ onBackHome, initialMode = 'login', onModeChange, onNavigateToGuestPortal }: AuthExperienceProps) => {
