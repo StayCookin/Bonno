@@ -10,7 +10,7 @@ interface ImageWithFallbackProps {
 
 export function ImageWithFallback({ 
   src, 
-  fallbackSrc = 'https://images.unsplash.com/photo-1581094794329-c8112b89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', // Engineering fallback image
+  fallbackSrc = 'engineering.jpeg', // Engineering fallback image
   alt, 
   className,
   onError
