@@ -1,14 +1,14 @@
-import { ipcMain as u, app as o, BrowserWindow as i, shell as a, Menu as p } from "electron";
+import { ipcMain as u, app as o, BrowserWindow as s, shell as a, Menu as p } from "electron";
 import * as r from "path";
-import * as f from "url";
+import * as w from "url";
 process.env.NODE_ENV !== "production" && require("electron-reload")(__dirname, {
   electron: r.join(__dirname, "..", "node_modules", ".bin", "electron"),
   hardResetMethod: "exit"
 });
 let e = null;
-const c = process.env.NODE_ENV !== "production", s = process.platform === "darwin";
-function d() {
-  e = new i({
+const d = process.env.NODE_ENV !== "production", i = process.platform === "darwin";
+function c() {
+  e = new s({
     width: 1200,
     height: 800,
     minWidth: 800,
@@ -19,23 +19,23 @@ function d() {
       preload: r.join(__dirname, "preload.js")
     },
     icon: r.join(__dirname, "../public/icon.png"),
-    titleBarStyle: s ? "hiddenInset" : "default",
+    titleBarStyle: i ? "hiddenInset" : "default",
     backgroundColor: "#ffffff",
     show: !1
   }), e.once("ready-to-show", () => {
-    e == null || e.show(), c && (e == null || e.webContents.openDevTools());
-  }), c ? e.loadURL("http://localhost:5173") : e.loadURL(
-    f.format({
+    e?.show(), d && e?.webContents.openDevTools();
+  }), d ? e.loadURL("http://localhost:5173") : e.loadURL(
+    w.format({
       pathname: r.join(__dirname, "../dist/index.html"),
       protocol: "file:",
       slashes: !0
     })
   ), e.on("closed", () => {
     e = null;
-  }), e.webContents.setWindowOpenHandler(({ url: t }) => (a.openExternal(t), { action: "deny" }));
+  }), e.webContents.setWindowOpenHandler(({ url: n }) => (a.openExternal(n), { action: "deny" }));
 }
-function b() {
-  const t = [
+function f() {
+  const n = [
     {
       label: "File",
       submenu: [
@@ -43,11 +43,11 @@ function b() {
           label: "New Guest Pass",
           accelerator: "CmdOrCtrl+N",
           click: () => {
-            e == null || e.webContents.send("new-guest-pass");
+            e?.webContents.send("new-guest-pass");
           }
         },
         { type: "separator" },
-        s ? { role: "close" } : { role: "quit" }
+        i ? { role: "close" } : { role: "quit" }
       ]
     },
     {
@@ -79,7 +79,7 @@ function b() {
       label: "Window",
       submenu: [
         { role: "minimize" },
-        ...s ? [{ type: "separator" }, { role: "front" }, { type: "separator" }, { role: "window" }] : [{ role: "close" }]
+        ...i ? [{ type: "separator" }, { role: "front" }, { type: "separator" }, { role: "window" }] : [{ role: "close" }]
       ]
     },
     {
@@ -99,12 +99,12 @@ function b() {
         }
       ]
     }
-  ], n = p.buildFromTemplate(t);
-  p.setApplicationMenu(n);
+  ], t = p.buildFromTemplate(n);
+  p.setApplicationMenu(t);
 }
 u.handle("app-version", () => o.getVersion());
-u.handle("print-pass", async (t, n) => {
-  const l = i.getFocusedWindow();
+u.handle("print-pass", async (n, t) => {
+  const l = s.getFocusedWindow();
   l && l.webContents.print({
     silent: !1,
     printBackground: !0,
@@ -112,15 +112,15 @@ u.handle("print-pass", async (t, n) => {
   });
 });
 o.whenReady().then(() => {
-  d(), b(), o.on("activate", () => {
-    i.getAllWindows().length === 0 && d();
+  c(), f(), o.on("activate", () => {
+    s.getAllWindows().length === 0 && c();
   });
 });
 o.on("window-all-closed", () => {
-  s || o.quit();
+  i || o.quit();
 });
-o.on("web-contents-created", (t, n) => {
-  n.on("new-window", (l, m) => {
+o.on("web-contents-created", (n, t) => {
+  t.on("new-window", (l, m) => {
     l.preventDefault(), a.openExternal(m);
   });
 });

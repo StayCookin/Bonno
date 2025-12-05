@@ -1,11 +1,47 @@
 import { Building2, Home, Users } from 'lucide-react';
 import { ImageWithFallback } from './ImageWithFallback';
+import UBotswanaLogo from '../assets/UBotswana.png';
+import { useState } from 'react';
+import { AuthForm } from './AuthForm';
+import { OnCampusApplication } from './OnCampusApplication';
 
 interface DashboardProps {
   onNavigate: (page: string) => void;
 }
 
 export function Dashboard({ onNavigate }: DashboardProps) {
+  const [showAuthForm, setShowAuthForm] = useState(false);
+  const [showApplication, setShowApplication] = useState(false);
+  const [authenticatedUser, setAuthenticatedUser] = useState<{ name: string; studentId: string } | null>(null);
+
+  const handleAuth = (user: { name: string; studentId: string }) => {
+    // User authenticated, close auth form and navigate to application
+    setAuthenticatedUser(user);
+    setShowAuthForm(false);
+    setShowApplication(true);
+  };
+
+  if (showApplication && authenticatedUser) {
+    return (
+      <OnCampusApplication 
+        user={authenticatedUser}
+        onBack={() => {
+          setShowApplication(false);
+          setAuthenticatedUser(null);
+        }}
+      />
+    );
+  }
+
+  if (showAuthForm) {
+    return (
+      <AuthForm 
+        onAuth={handleAuth}
+        onBack={() => setShowAuthForm(false)}
+      />
+    );
+  }
+
   return (
     <div className="max-w-6xl mx-auto px-6 py-12">
       <div className="text-center mb-12">
@@ -26,13 +62,17 @@ export function Dashboard({ onNavigate }: DashboardProps) {
               Popular
             </div>
           </div>
-          <div className="p-8 flex-1 flex flex-col">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-2 bg-[#8B1E3F]/10 rounded-lg">
-                <Building2 className="text-[#8B1E3F] h-6 w-6" />
+        <div className="p-8 flex-1 flex flex-col">
+          <div className="flex items-center gap-3 mb-4">
+              <div className="h-10 w-auto">
+                <ImageWithFallback
+                  src={UBotswanaLogo} 
+                  alt="University of Botswana" 
+                  className="h-full w-auto object-contain"
+                />
               </div>
               <h2 className="text-xl font-bold text-gray-900">Bonno On-Campus Housing</h2>
-            </div>
+          </div>
             <p className="text-gray-600 mb-6">
               Live in university-managed residences with easy access to classes, libraries, and campus facilities.
             </p>
@@ -45,7 +85,7 @@ export function Dashboard({ onNavigate }: DashboardProps) {
               ))}
             </ul>
             <button
-              onClick={() => onNavigate('application')}
+              onClick={() => setShowAuthForm(true)}
               className="w-full bg-[#8B1E3F] hover:bg-[#6b1730] text-white font-semibold py-3 rounded-lg transition-colors shadow-lg shadow-[#8B1E3F]/20"
             >
               Apply for Bonno Housing
