@@ -2,7 +2,6 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
 import { MapPin, Bed, Users, DollarSign } from 'lucide-react';
-import { ImageWithFallback } from './figma/ImageWithFallback';
 
 export interface AccommodationOption {
   id: string;
@@ -26,7 +25,7 @@ export function AccommodationCard({ accommodation, onSelect }: AccommodationCard
   return (
     <Card className="overflow-hidden hover:shadow-lg transition-shadow">
       <div className="aspect-video relative overflow-hidden">
-        <ImageWithFallback
+        <img
           src={accommodation.image}
           alt={accommodation.title}
           className="w-full h-full object-cover"
