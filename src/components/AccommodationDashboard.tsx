@@ -1,8 +1,9 @@
 import { Building2, Home } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
-import { ImageWithFallback } from './figma/ImageWithFallback';
 import { UserPlus } from 'lucide-react';
+import libraryImg from '../assets/library.png';
+import execImg from '../assets/Exec.png';
 
 interface AccommodationDashboardProps {
   user: {
@@ -28,8 +29,8 @@ export function AccommodationDashboard({ user, onNavigate }: AccommodationDashbo
             {/* On-Campus Card */}
             <Card className="overflow-hidden hover:shadow-xl transition-all hover:-translate-y-1">
               <div className="aspect-[4/3] relative overflow-hidden">
-                <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1614715661635-abb0547c125c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBkb3JtJTIwcm9vbXxlbnwxfHx8fDE3NjI2MjQwNzR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                <img
+                  src={libraryImg}
                   alt="On-campus accommodation"
                   className="w-full h-full object-cover"
                 />
@@ -85,8 +86,8 @@ export function AccommodationDashboard({ user, onNavigate }: AccommodationDashbo
             {/* Off-Campus Card */}
             <Card className="overflow-hidden hover:shadow-xl transition-all hover:-translate-y-1">
               <div className="aspect-[4/3] relative overflow-hidden">
-                <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdHVkZW50JTIwYXBhcnRtZW50fGVufDF8fHx8MTc2MjY3OTM0OXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                <img
+                  src={execImg}
                   alt="Off-campus accommodation"
                   className="w-full h-full object-cover"
                 />

@@ -3,10 +3,11 @@ import { ArrowLeft, Filter, Search } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
-import { AccommodationCard, AccommodationOption } from './AccommodationCard';
+import { AccommodationCard } from './AccommodationCard';
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from './ui/dialog';
 import { Label } from './ui/label';
 import { toast } from 'sonner';
+import { accommodationOptions } from '../data/accommodationData';
 
 interface OffCampusListingsProps {
   onBack: () => void;
