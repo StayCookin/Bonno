@@ -1,12 +1,12 @@
-const { contextBridge: r, ipcRenderer: s } = require("electron");
-r.exposeInMainWorld("electronAPI", {
-  getVersion: () => s.invoke("app-version"),
-  printPass: (e) => s.invoke("print-pass", e),
-  onNewGuestPass: (e) => {
-    s.on("new-guest-pass", e);
+const { contextBridge, ipcRenderer } = require("electron");
+contextBridge.exposeInMainWorld("electronAPI", {
+  getVersion: () => ipcRenderer.invoke("app-version"),
+  printPass: (passData) => ipcRenderer.invoke("print-pass", passData),
+  onNewGuestPass: (callback) => {
+    ipcRenderer.on("new-guest-pass", callback);
   },
-  removeAllListeners: (e) => {
-    s.removeAllListeners(e);
+  removeAllListeners: (channel) => {
+    ipcRenderer.removeAllListeners(channel);
   },
   platform: process.platform
 });

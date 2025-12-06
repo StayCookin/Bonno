@@ -16,7 +16,7 @@ import {
 } from 'lucide-react';
 import { Dashboard } from './Dashboard';
 import { ImageWithFallback } from './ImageWithFallback';
-import engineeringImage from '../assets/engineering.png';
+
 
 interface HeaderProps {
   onLogout: () => void;
@@ -106,9 +106,12 @@ const AuthScreen = ({ initialMode = 'login', onLogin, onBackHome, onModeChange }
   onModeChange?.(value);
 };
 
+     const engineeringImage = './engineering.png';
+
  return (
     <div className="min-h-screen flex flex-col lg:flex-row">
      {/* Left side - Image */}
+
       <div className="flex h-64 lg:h-auto lg:w-1/2 relative">
        <ImageWithFallback
          src={engineeringImage}
