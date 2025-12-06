@@ -76,7 +76,7 @@ export function AuthForm({ onAuth, onBack }: AuthFormProps) {
             </Button>
           )}
           
-          <Tabs defaultValue="signup" className="w-full" onValueChange={(value) => setIsSignUp(value === 'signup')}>
+          <Tabs defaultValue="signup" className="w-full" onValueChange={(value: string) => setIsSignUp(value === 'signup')}>
             <TabsList className="grid w-full grid-cols-2">
               <TabsTrigger value="signup">Sign Up</TabsTrigger>
               <TabsTrigger value="login">Login</TabsTrigger>

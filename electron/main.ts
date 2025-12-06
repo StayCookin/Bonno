@@ -2,13 +2,13 @@ import { app, BrowserWindow, Menu, shell, ipcMain } from 'electron';
 import * as path from 'path';
 import * as url from 'url';
 
-// Enable live reload for Electron too
-if (process.env.NODE_ENV !== 'production') {
-  require('electron-reload')(__dirname, {
-    electron: path.join(__dirname, '..', 'node_modules', '.bin', 'electron'),
-    hardResetMethod: 'exit'
-  });
-}
+// // Enable live reload for Electron too
+// if (process.env.NODE_ENV !== 'production') {
+//   require('electron-reload')(__dirname, {
+//     electron: path.join(__dirname, '..', 'node_modules', '.bin', 'electron'),
+//     hardResetMethod: 'exit'
+//   });
+// }
 
 let mainWindow: BrowserWindow | null = null;
 const isDev = process.env.NODE_ENV !== 'production';
